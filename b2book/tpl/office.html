@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>{include="includes"}
+
+<style type="text/css">
+	#of-header{ position:relative;z-index:5;width:100%;background-image: url("./images/of-header-center.jpg");background-repeat: repeat-x;height:47px; }
+	#of-menu{ position:relative;z-index:4;width:100%;background-image: url("./images/of-menu-center.jpg");background-repeat: repeat-x;height:87px;box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); }
+	#of-page{ background-color: white;box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);color:black;width: 48%;height:auto;margin:160px auto 0 auto;padding: 40px; }
+	.of-link{ margin-bottom: 20px; }
+	.of-link a { text-decoration: none;color: black; }
+	.of-link h1 { font-size:14px;font-weight: bold;font-style: normal;margin: 0 0 5px 0;padding:0; }
+	.of-link p { font-size:12px;font-weight: normal;font-style: normal;margin: 0 0 5px 0;padding:0; }
+	.of-footer { font-size:12px;font-weight: normal;font-style: italic;margin: 0 0 5px 0;padding:0; }
+	.comment { position:relative;z-index:3;font-size: 11px;color:black;font-style: normal;padding: 2px 20px; }
+	.comment span { font-size: 11px;color:black;font-weight: bold;font-style: normal; }
+	.comment textarea { font-size: 11px;color:black;font-weight: normal;font-style: normal;border:none;height: 12px; }
+	.commentButton { right:0;top:2px;left:3px; }
+	.commentTagIncognito { cursor: pointer; }
+	#returnButton { position: absolute;top:0;right:4px;width:47px;height: 18px; }
+ </style>
+
+</head>
+<body style="margin:0;padding:0;background-color:#c9cdd2;color:black;background-image:none;">
+
+<div style="position:fixed;width:100%;margin:0;padding:0;top:0;">
+	<div id="of-header">
+		<img src="../images/of-header-left.png" style="float:left;"/>
+		<img src="../images/of-header-right.png" style="float:right;"/>
+		<a href="?"><div id="returnButton"></div></a>
+	</div>
+	<div id="of-menu">
+		<img src="../images/of-menu.jpg" style="float:left;"/>
+	</div>
+</div>
+
+<div id="of-page">
+	{loop="links"}
+	<div class="of-link b2post" rel="{$value.linkdate|smallHash}">
+		<h1><a href="{$value.url}" target="_blank">{$value.title|htmlspecialchars}</a></h1>
+		{if="$value.description"}<p>{$value.description|i_nl2br}</p>{/if}
+		<div class="of-footer">Par {$value.author|ucwords} le {$value.localdate|htmlspecialchars} | <span onclick="showComment($(this))" class="commentTagIncognito" ><span class="comcount">{$value.commentCount}</span> commentaires</span></div>
+	</div>
+	{/loop}
+</div>
+
+<div style=""></div>
+
+</body>
+</html>

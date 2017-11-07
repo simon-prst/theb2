@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>{include="includes"}</head>
+<body>
+
+<a href="http://theb2.fr/"><img src="../images/corner.png" id="corner" class="nomobile" /></a>
+
+<div id="mainContainer">
+    
+    <div id="pageheader"> {include="page.header"} </div>
+
+    <div id="content">
+    	{if="isset($message)"}<div id="headerform" style="display:block;padding:10px;font-size:14px;color:#fff;">{$message}</div>
+    	{else}<div id="headerform"></div>{/if}
+        {include="linklist2"}
+
+    	{if condition="$search_type!='bookmarklet'"}{include="page.footer"}{/if}
+
+    </div>
+
+</div>
+
+</body>
+</html>

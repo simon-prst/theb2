@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{include="includes"}
+	<style type="text/css">
+		#stat { padding: 20px; }
+		#stat h1 { font-style: normal; color:#0096d6; }
+		#stat table, #stat th, #stat td { border: 1px solid #0096d6; padding:5px; }
+		#stat th { color:#0096d6; }
+		#stat span { font-style: italic; font-size: 11px; color: #888; }
+	</style>
+
+</head>
+<body>
+
+<div id="mainContainer">
+    
+    <div id="pageheader"> {include="page.header"} </div>
+
+    <div id="content">
+    	{if="isset($message)"}<div id="headerform" style="display:block;padding:10px;font-size:14px;color:#fff;">{$message}</div>
+    	{else}<div id="headerform"></div>{/if}
+        
+    	<div id="stat">
+    		<h1>Quelques statistiques ;-)</h1><br>
+    		<i>Nombre d'articles postés quotidiennement (remarquez qu'on a pas beaucoup de passages à vide !)<i><br>
+			<img src="../images/stat1.png" height="222px" width="1153px" style="margin-left:0px;">
+
+    		<table style="margin-top:20px;">
+    			<tr>
+    				<th>Qui ?</th>
+    				<th>Posts</th>
+    				<th>Commentaires</th>
+    				<th>Ratio com/post</th>
+    				<th>Note moyenne obtenue</th>
+    				<th>Note moyenne donnée aux autres</th>
+    			</tr>
+				<tr>
+					<td>christophe</td>
+					<td>752</td>
+					<td>1756</td>
+					<td>2.3</td>
+					<td>7.7 <span>sur 285 posts</span></td>
+					<td>8.3 <span>sur 241 notes</span></td>
+				</tr>
+				<tr>
+					<td>benjamin</td>
+					<td>269</td>
+					<td>968</td>
+					<td>3.6</td>
+					<td>7.9 <span>sur 143 posts</span></td>
+					<td>8.7 <span>sur 445 notes</span></td>
+				</tr>
+				<tr>
+					<td>timi</td>
+					<td>100</td>
+					<td>547</td>
+					<td>5.5</td>
+					<td>8.7 <span>sur 54 posts</span></td>
+					<td>7.4 <span>sur 149 notes</span></td>
+				</tr>
+				<tr>
+					<td>pierre_l</td>
+					<td>38</td>
+					<td>519</td>
+					<td>13.7</td>
+					<td>8.4 <span>sur 10 posts</span></td>
+					<td>7.3 <span>sur 120 notes</span></td>
+				</tr>
+				<tr>
+					<td>simon</td>
+					<td>112</td>
+					<td>509</td>
+					<td>4.5</td>
+					<td>8.9 <span>sur 46 posts</span></td>
+					<td>7.3 <span>sur 146 notes</span></td>
+				</tr>
+				<tr>
+					<td>tipple</td>
+					<td>180</td>
+					<td>431</td>
+					<td>2.4</td>
+					<td>7.9 <span>sur 113 posts</span></td>
+					<td>7.2 <span>sur 303 notes</span></td>
+				</tr>
+				<tr>
+					<td>mathieu</td>
+					<td>170</td>
+					<td>295</td>
+					<td>1.7</td>
+					<td>8.2 <span>sur 63 posts</span></td>
+					<td>7.5 <span>sur 101 notes</span></td>
+				</tr>
+				<tr>
+					<td>peo</td>
+					<td>77</td>
+					<td>232</td>
+					<td>3</td>
+					<td>8 <span>sur 36 posts</span></td>
+					<td>8.6 <span>sur 91 notes</span></td>
+				</tr>
+				<tr>
+					<td>kouzkouz</td>
+					<td>33</td>
+					<td>169</td>
+					<td>5.1</td>
+					<td>4.9 <span>sur 6 posts</span></td>
+					<td>10 <span>sur 4 notes</span></td>
+				</tr>
+				<tr>
+					<td>audrey</td>
+					<td>15</td>
+					<td>163</td>
+					<td>10.9</td>
+					<td>9.5 <span>sur 7 posts</span></td>
+					<td>8.5 <span>sur 90 notes</span></td>
+				</tr>
+				<tr>
+					<td>ginette</td>
+					<td>24</td>
+					<td>148</td>
+					<td>6.2</td>
+					<td>7.4 <span>sur 10 posts</span></td>
+					<td>8.1 <span>sur 70 notes</span></td>
+				</tr>
+				<tr>
+					<td>maelle</td>
+					<td>72</td>
+					<td>78</td>
+					<td>1.1</td>
+					<td>8.3 <span>sur 31 posts</span></td>
+					<td>9.3 <span>sur 38 notes</span></td>
+				</tr>
+				<tr>
+					<td>adrien</td>
+					<td>9</td>
+					<td>28</td>
+					<td>3.1</td>
+					<td>10 <span>sur 1 post</span></td>
+					<td>9.5 <span>sur 3 notes</span></td>
+				</tr>
+				<tr>
+					<td>romain</td>
+					<td>5</td>
+					<td>15</td>
+					<td>3</td>
+					<td>9.4 <span>sur 4 posts</span></td>
+					<td>9.6 <span>sur 37 notes</span></td>
+				</tr>
+				<tr>
+					<td>nounours</td>
+					<td>16</td>
+					<td>11</td>
+					<td>0.7</td>
+					<td>8.8 <span>sur 14 posts</span></td>
+					<td>9.4 <span>sur 70 notes</span></td>
+				</tr>
+				<tr>
+					<td>nathalie</td>
+					<td>1</td>
+					<td>10</td>
+					<td>-</td>
+					<td>10</td>
+					<td>8.6 <span>sur 1 note</span></td>
+				</tr>
+				<tr>
+					<td>guillaume_c</td>
+					<td>10</td>
+					<td>7</td>
+					<td>0.7</td>
+					<td>7.2 <span>sur 2 posts</span></td>
+					<td>9.7 <span>sur 8 notes</span></td>
+				</tr>
+				<tr>
+					<td>faz</td>
+					<td>7</td>
+					<td>1</td>
+					<td>0.1</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+    		</table>
+    	</div>
+
+    	{include="page.footer"}
+
+    </div>
+
+</div>
+
+</body>
+</html>

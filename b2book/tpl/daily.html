@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>{include="includes"}</head>
+<body>
+
+<div id="mainContainer">
+    
+    <div id="pageheader"> {include="page.header"} </div>
+
+    <div id="content" style="background-color: transparent;box-shadow:none;">
+        {if="isset($message)"}<div id="headerform" style="display:block;padding:10px;font-size:14px;color:#fff;">{$message}</div>
+        {else}<div id="headerform"></div>{/if}
+
+        <div id="daily">
+
+            <div id="dailyheader">
+                {if="$previousday"} <a href="?do=daily&day={$previousday}" id="dailyPrevious"> <img src="../images/icon_previous.png" /> </a> {/if}
+                {if="$nextday"} <a href="?do=daily&day={$nextday}" id="dailyNext"> <img src="../images/icon_next.png" /> </a> {/if}
+                <div id="dailyDate">{$day}</div>
+            </div>
+
+            {if="$linksToDisplay"}
+
+                <div id="daily_col1">
+                    {loop="col1"}
+                    <div class="dailyEntry {$value.color}">
+                        <div class="dailyEntryHeader"> <a href="?{$value.linkdate|smallHash}">{$value.header}</a> </div>
+                        <div class="dailyEntryTitle"> <a href="{$value.url}" target="_blank">{$value.title}</a> </div>
+                        <div class="dailyEntryDescription">
+                			{if="$value.comment"}
+                                {loop="$value.formatedDescription"}
+                                    <div class="comment" style="opacity:{$value.opacity};"><span>{$value.text|text2clickable}</div>
+                                {/loop}
+                            {else}
+                                {ignore}{if="$value.thumbnail"} <div class="dailyEntryThumbnail">{$value.thumbnail}</div>{/if}{/ignore}
+                                {$value.formatedDescription}
+                			{/if}
+                        </div>
+                    </div>
+                    {/loop}
+                </div>
+
+                <div id="daily_col2">
+                    {loop="col2"}
+                    <div class="dailyEntry {$value.color}">
+                        <div class="dailyEntryHeader"> <a href="?{$value.linkdate|smallHash}">{$value.header}</a> </div>
+                        <div class="dailyEntryTitle"> <a href="{$value.url}" target="_blank">{$value.title}</a> </div>
+                        <div class="dailyEntryDescription">
+                            {if="$value.comment"}
+                                {loop="$value.formatedDescription"}
+                                    <div class="comment" style="opacity:{$value.opacity};"><span>{$value.text|text2clickable}</div>
+                                {/loop}
+                            {else}
+                                {ignore}{if="$value.thumbnail"} <div class="dailyEntryThumbnail">{$value.thumbnail}</div>{/if}{/ignore}
+                                {$value.formatedDescription}
+                            {/if}
+                        </div>
+                    </div>
+                    {/loop}
+                </div>    
+
+                <div id="daily_col3">
+                    {loop="col3"}
+                    <div class="dailyEntry {$value.color}">
+                        <div class="dailyEntryHeader"> <a href="?{$value.linkdate|smallHash}">{$value.header}</a> </div>
+                        <div class="dailyEntryTitle"> <a href="{$value.url}" target="_blank">{$value.title}</a> </div>
+                        <div class="dailyEntryDescription">
+                            {if="$value.comment"}
+                                {loop="$value.formatedDescription"}
+                                    <div class="comment" style="opacity:{$value.opacity};"><span>{$value.text|text2clickable}</div>
+                                {/loop}
+                            {else}
+                                {ignore}{if="$value.thumbnail"} <div class="dailyEntryThumbnail">{$value.thumbnail}</div>{/if}{/ignore}
+                                {$value.formatedDescription}
+                            {/if}
+                        </div>
+                    </div>
+                    {/loop}
+                </div>
+
+            {else}
+                 <div style="text-align:center; padding:40px 0px 90px 0px;">No articles on this day.</div>
+            {/if}
+
+        </div>
+        
+    </div>
+
+</div>
+
+</body>
+</html>

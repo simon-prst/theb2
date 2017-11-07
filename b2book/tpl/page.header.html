@@ -1,0 +1,46 @@
+
+<div id="topheader">
+
+	<div id="logo" title="The book to be." onclick="document.location='?';">B2book</div>
+	{if condition="isset($search_type) && $search_type=='bookmarklet'"}<img src="../images/bookmarklet.png" style="position:absolute;top:7px;left:48px;" />{/if}
+	<div id="logoLine" class="nomobile"></div>
+	<div id="header_info" class="nomobile">Bienvenue {who()|ucwords}<br>{$linkcount} posts | {$persolinkcount} personnels</div>
+	<ul id="header_menu">
+	{if="!empty($_GET['source']) && $_GET['source']=='bookmarklet'"}
+    	{ignore} When called as a popup from bookmarklet, do not display menu. {/ignore}
+	{else}
+			<li class="nomobile"><a href="?">
+				<i class="fa fa-home"></i><span class="nomobile">Home</span>
+			</a></li>
+
+			<li><a href="#" class="headerlinked" rel="addlink">
+				<i class="fa fa-plus-circle"></i><span class="nomobile">Add link</span>
+			</a></li>
+
+			<li><a id="dailyButton" style="cursor:pointer;" >
+				<i class="fa fa-calendar-o"></i><span class="nomobile">Daily</span>
+			</a></li>
+			
+			<li><a href="?bookmarks">
+				<i class="fa fa-heart"></i><span class="nomobile">Bookmarks</span>
+			</a></li>
+
+			<li><a href="#" class="headerlinked" rel="search">
+				<i class="fa fa-search"></i><span class="nomobile">Search</span>
+			</a></li>
+
+			<li class="nomobile"><a href="?do=office">
+				<i class="fa fa-eye"></i><span class="nomobile">Incognito</span>
+			</a></li>
+
+			<li class="nomobile"><a href="#" class="headerlinked" rel="tools">
+				<i class="fa fa-cogs"></i><span class="nomobile">Tools</span>
+			</a></li>
+
+			<li><a href="?do=logout">
+				<i class="fa fa-sign-out"></i><span class="nomobile">Logout</span>
+			</a></li>
+	{/if}
+	</ul>
+
+</div>

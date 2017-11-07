@@ -1,0 +1,35 @@
+<li class="publicLinkHightLight">
+	<form method="post" name="linkform" id="editlinkform">
+		<table class="link_table"><tr>
+            <td class="link_container">
+
+				<input type="hidden" name="lf_linkdate" value="{$link.linkdate}">
+				<input type="hidden" name="lf_awesome" value="{$link.awesome|htmlspecialchars}">
+				<input type="hidden" name="lf_author" value="{$link.author}" christophe="désolé, tu ne peux pas publier à la place de quelqu'un d'autre par là ...">
+				{if condition="$http_referer"}<input type="hidden" name="returnurl" value="{$http_referer|htmlspecialchars}">{/if}
+
+		        <div class="linkurl" title="{$link.url|htmlspecialchars}">
+		        	<input type="text" name="lf_url" value="{$link.url|htmlspecialchars}">
+		        </div>
+
+		        <div class="linktitle" title="{$link.title|htmlspecialchars}" style="margin-top:5px;">
+		        	<input type="text" name="lf_title" value="{$link.title|htmlspecialchars}">
+		        </div>
+
+		        <div class="linkdescription" style="margin-top:5px;">
+		        	<textarea name="lf_description" id="lf_description" rows="4" cols="25">{$link.description}</textarea>
+		        </div>
+
+		        <div class="linkfooter" style="margin-top:5px;">
+			        <input type="submit" value="Save" name="save_edit" class="bluebutton" style="margin-right:20px;">
+			        <input type="submit" value="Cancel" name="cancel_edit" class="bluebutton" style="margin-right:20px;">
+		        	{if condition="!$link_is_new"}<input type="submit" value="Delete" name="delete_link" class="bluebutton" style="margin-right:20px;" onClick="return confirmDeleteLink();">{/if}
+		        	<label for="lf_private"><i>is that link private ?</i></label><input type="checkbox" {if condition="$link.private!=0"}checked="yes"{/if} name="lf_private" id="lf_private" style="vertical-align:middle;margin-left:5px;">
+		        </div>
+		    </td>
+            <td class="link_thumbnail nomobile"></td>
+        </tr></table>
+
+		<div class="commentTag nomobile"></div>
+	</form>
+</li>

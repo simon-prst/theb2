@@ -1,0 +1,57 @@
+{if="$search_type=='fulltext'"} <div id="searchcriteria">{$result_count} results for <i>{$search_crits}</i></div> {/if}
+{if="$search_type=='tags'"} 
+    <div id="searchcriteria">{$result_count} results for author(s) <i>
+    {loop="search_crits"}
+        <span class="linktag" title="Remove tag"><a href="?removetag={$value|htmlspecialchars}">{$value|htmlspecialchars} <span style="border-left:1px solid #aaa; padding-left:5px;">x</span></a></span>
+    {/loop}</i></div>
+{/if}
+
+<ul id="linklist">
+    {if="isset($link)"} {include="editlink"} {/if}
+    {loop="links"}
+    <li class="b2post{if="$value.class"} {$value.class}{/if}" rel="{$value.linkdate|smallHash}">
+
+        <table class="link_table"><tr>
+            <td class="link_container">
+
+                <span class="linktitle" title="{$value.url|htmlspecialchars}"><a href="{$redirector}{$value.url}" target="_blank">{$value.title|htmlspecialchars}</a></span>
+                
+                {if="who()==$value.author || who()=='admin'"}
+                    <form method="GET" class="buttoneditform"><input type="hidden" name="edit_link" value="{$value.linkdate}"><input type="image" alt="Edit" src="images/edit_icon.png#" title="Edit" class="button_edit"></form>
+                    <form method="POST" class="buttoneditform"><input type="hidden" name="lf_linkdate" value="{$value.linkdate}">
+                    <input type="hidden" name="delete_link"><input type="image" alt="Delete" src="images/delete_icon.png#" title="Delete" class="button_delete" onClick="return confirmDeleteLink();"></form>
+                
+                {/if}
+                <br>
+
+                {if="$value.description"}<div class="linkdescription"{if condition="$search_type=='permalink'"} style="max-height:none !important;"{/if}>{$value.description|i_nl2br}</div>{/if}
+                
+                <div class="linkfooter">
+                    <div class="commentTagMobile" onclick="showComment($(this))" rel="{$value.linkdate|smallHash}"><div class="comcount">{$value.commentCount}</div></div>
+                    {if="$value.bookmarked"}
+                        <div class="unbookmark_button notiny" title="Un-bookmark this post" onclick="unbookmark($(this))"></div>
+                    {else}
+                        <div class="bookmark_button notiny" title="Bookmark this post" onclick="bookmark($(this))"></div>
+                    {/if}
+                    <span class="linkdate" title="Permalink"><a href="?{$value.linkdate|smallHash}">Par <span>{$value.author|ucwords}</span> le {$value.localdate|htmlspecialchars}</a></span>
+                    <div id="awesomecount{$value.linkdate}" class="awesometer_count notiny" title="Vote de {$value.awesome_count} personne(s)">{$value.awesome_count}</div>
+                    <div class="awesometer_box notiny">
+                        <div id="star{$value.linkdate}" class="awesometer" global="{$value.note_globale}" perso="{$value.note_perso}" {if="$value.awesome_blank"}style="background-image: url('images/star0.png');"{/if}>
+                            <div style="width:{$value.note_globale}px;"></div>
+                        </div>
+                        <div class="awesometer_top" onclick="like('{$value.linkdate}')"></div>
+                    </div>
+                    <span id="log{$value.linkdate}" class="awesometer_log notiny"></span>
+                </div>
+
+            </td>
+            <td class="link_thumbnail notablet">{$value.url|thumbnail}</td>
+        </tr></table>
+
+		<div class="commentTag nomobile" onclick="showComment($(this));" rel="{$value.linkdate|smallHash}"><div class="comcount">{$value.commentCount}</div></div>
+
+    </li>
+{/loop}
+</ul>
+
+{if condition="$search_type!='bookmarklet'"}{include="linklist.paging"}{/if}

@@ -1,0 +1,7 @@
+<Files *.mp3>
+  ForceType application/octet-stream
+  Header set Content-Disposition attachment
+</Files>
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule	^dossier$	"RH2017 - Dossier TheB2.pdf"	[L]	

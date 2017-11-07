@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>{include="includes"}</head>
+<body>
+
+<div id="mainContainer">
+    
+    <div id="pageheader"> {include="page.header"} </div>
+
+    <div id="content" style="background-color: transparent;box-shadow: none;">
+        {if="isset($message)"}<div id="headerform" style="display:block;padding:10px;font-size:14px;color:#fff;">{$message}</div>
+        {else}<div id="headerform"></div>{/if}
+
+        <div class="daily">
+
+            {loop="orderedlinks"}
+
+            <div class="small {$value.color} tile">
+                <span>{$value.header}</span>
+                <h1>{$value.title}</h1>
+                <p>{$value.formatedDescription}</p>
+            </div>
+
+            {/loop}
+
+        </div>
+        
+    </div>
+
+</div>
+
+</body>
+</html>
